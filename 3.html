@@ -20,10 +20,21 @@ ctx.translate(radius, radius);
 radius = radius * 0.90
 setInterval(drawClock, 1000);
 
-    var time3 = new Date();
-    var hour3 = time3.getHours();
-    var minute3 = time3.getMinutes();
-    var second3 = time3.getSeconds();
+var time3=0,hour3=0,minute3=0,second3=0,milli3=0,tih=0,tim=0;
+window.onkeydown=function(event){var e=event;
+    if(e.keyCode==51){currentTTime();tih=3;tim=0;};
+    if(e.keyCode==57){currentTTime();tih=8;tim=30;}
+    if(e.keyCode==49){time3=0;hour3=0;minute3=0;second3=0;milli3=0;tih=0;tim=0;}
+}
+function currentTTime() {
+        time3 = new Date()
+        hour3 = time3.getHours()
+        minute3 = time3.getMinutes()
+        second3 = time3.getSeconds()
+        milli3 = time3.getMilliseconds()
+        tih=0
+        tim=0
+}
 
 
 
@@ -72,8 +83,8 @@ function drawNumbers(ctx, radius) {
 
 function drawTime(ctx, radius){
     var now = new Date();
-    var hour = now.getHours()-hour3+3;
-    var minute = now.getMinutes()-minute3-1;
+    var hour = now.getHours()-hour3+tih;
+    var minute = now.getMinutes()-minute3+tim-1;
     var second = now.getSeconds()-second3;
     //hour
     hour=hour%12;
