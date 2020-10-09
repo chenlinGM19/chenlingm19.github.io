@@ -18,9 +18,6 @@ function currentTTime() {
         tih=0
         tim=0;
 }
-
-
-
 function utilityClock(container) {
     var dynamic = container.querySelector('.dynamic')
     var hourElement = container.querySelector('.hour')
