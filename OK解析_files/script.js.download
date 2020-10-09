@@ -3,6 +3,24 @@ utilityClock(clock)
 
 if (clock.parentNode.classList.contains('fill')) autoResize(clock, 295 + 32)
 
+var time3=0,hour3=0,minute3=0,second3=0,milli3=0,tih=0,tim=0;
+window.onkeydown=function(event){var e=event;
+    if(e.keyCode==51){currentTTime();tih=3;tim=0;};
+    if(e.keyCode==57){currentTTime();tih=8;tim=30;$("body").css("filter",": invert(100%)")}
+    if(e.keyCode==49){time3=0;hour3=0;minute3=0;second3=0;milli3=0;tih=0;tim=0;}
+}
+function currentTTime() {
+    var time3 = new Date()
+        hour3 = time3.getHours()
+        minute3 = time3.getMinutes()
+        second3 = time3.getSeconds()
+        milli3 = time3.getMilliseconds()
+        tih=0
+        tim=0;
+}
+
+
+
 function utilityClock(container) {
     var dynamic = container.querySelector('.dynamic')
     var hourElement = container.querySelector('.hour')
@@ -44,10 +62,10 @@ function utilityClock(container) {
     }
     var animate = function() {
         var now = new Date()
-        var time = now.getHours() * 3600 +
-                    now.getMinutes() * 60 +
-                    now.getSeconds() * 1 +
-                    now.getMilliseconds() / 1000
+        var time = (now.getHours()-hour3+tih) * 3600 +
+                   (now.getMinutes()-minute3+tim-1) * 60 +
+                   (now.getSeconds()-second3)* 1 +
+                   (now.getMilliseconds()-milli3) / 1000
         rotate(secondElement, time)
         rotate(minuteElement, time / 60)
         rotate(hourElement, time / 60 / 12)
