@@ -6,7 +6,7 @@ if (clock.parentNode.classList.contains('fill')) autoResize(clock, 295 + 32)
 
 var time3=0,hour3=0,minute3=0,second3=0,milli3=0,tih=0,tim=0;
 window.onkeydown=function(event){var e=event;
-    if(e.keyCode==51){currentTTime();tih=3;tim=0;};
+    if(e.keyCode==50){currentTTime();tih=2;tim=0;};
     if(e.keyCode==57){currentTTime();tih=8;tim=30;$("div").css("filter",": invert(100%)")}
     if(e.keyCode==49){time3=0;hour3=0;minute3=0;second3=0;milli3=0;tih=0;tim=0;}
 }
